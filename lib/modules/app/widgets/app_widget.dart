@@ -1,4 +1,4 @@
-import 'package:book_collector/modules/collection/collection_page.dart';
+import 'package:book_collector/modules/collection/collection_page_bar.dart';
 import 'package:flutter/material.dart';
 
 import '../app.dart';
