@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.book_collector">
    <application
-        android:label="book_collector"
+        android:label="Book Collector"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
