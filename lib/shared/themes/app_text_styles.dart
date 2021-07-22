@@ -9,11 +9,13 @@ class AppTextStyles {
     fontWeight: FontWeight.w600,
     color: AppColors.grey,
   );
-  static final titleRegular = GoogleFonts.lexendDeca(
-    fontSize: 20,
-    fontWeight: FontWeight.w400,
-    color: AppColors.grey
+  static final titleLibrary = GoogleFonts.lexendDeca(
+    fontSize: 28,
+    fontWeight: FontWeight.w600,
+    color: AppColors.grey,
   );
+  static final titleRegular = GoogleFonts.lexendDeca(
+      fontSize: 20, fontWeight: FontWeight.w400, color: AppColors.grey);
   static final titleBoldGrey = GoogleFonts.lexendDeca(
     fontSize: 20,
     fontWeight: FontWeight.w600,
@@ -40,10 +42,7 @@ class AppTextStyles {
     color: AppColors.primary,
   );
   static final buttonSecondary = GoogleFonts.inter(
-    fontSize: 15,
-    fontWeight: FontWeight.w400,
-    color: AppColors.primary
-  );
+      fontSize: 15, fontWeight: FontWeight.w400, color: AppColors.primary);
   static final buttonGrey = GoogleFonts.inter(
     fontSize: 15,
     fontWeight: FontWeight.w400,

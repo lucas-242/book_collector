@@ -1,3 +1,4 @@
+import 'package:book_collector/modules/collection/collection_page.dart';
 import 'package:flutter/material.dart';
 
 import '../app.dart';
@@ -15,7 +16,7 @@ class _AppState extends State<App> {
   var pages = [
     Container(color: Colors.amber),
     Container(color: Colors.blue),
-    Container(color: Colors.green),
+    CollectionPage()
   ];
 
   void changePage(int index) {
@@ -27,6 +28,7 @@ class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: pages[pageIndex],
       ),
