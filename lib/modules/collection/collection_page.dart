@@ -1,4 +1,5 @@
 import 'package:book_collector/shared/core/app_routes.dart';
+import 'package:book_collector/shared/models/book.dart';
 import 'package:book_collector/shared/themes/themes.dart';
 import 'package:flutter/material.dart';
 
@@ -12,9 +13,33 @@ class CollectionPage extends StatefulWidget {
 }
 
 class _CollectionPageState extends State<CollectionPage> {
+  Book book = Book(
+    id: 'abc',
+    edition: 'Primeira edição',
+    publishedBy: 'Kírion',
+    year: 1984,
+    image: 'assets/images/example_book.png',
+    name: 'A Educação da Vontade',
+    category: 'Auto Ajuda',
+    author: 'Jules Payot',
+  );
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+
+    var books = [
+      book,
+      book,
+      book,
+      book,
+      book,
+      book,
+      book,
+      book,
+      book,
+    ];
+
     return Scaffold(
       appBar: PreferredSize(
         child: Column(children: [
@@ -67,94 +92,17 @@ class _CollectionPageState extends State<CollectionPage> {
         ]),
         preferredSize: Size(size.width, size.height / 4.8),
       ),
-      body: //
-          ListView(
-              scrollDirection: Axis.vertical,
-              physics: BouncingScrollPhysics(),
-              children: [
-            SizedBox(height: 30),
-            Divider(thickness: 1),
-            BookTile(
-              image: 'assets/images/example_book.png',
-              title: 'A Educação da Vontade',
-              category: 'Auto Ajuda',
-              author: 'Jules Payot',
-              onTap: () async {
-                await Navigator.pushNamed(context, AppRoutes.bookDescription);
-                setState(() {});
-              },
-            ),
-            BookTile(
-              image: 'assets/images/example_book.png',
-              title: 'A Educação da Vontade',
-              category: 'Auto Ajuda',
-              author: 'Jules Payot',
-              onTap: () async {
-                await Navigator.pushNamed(context, AppRoutes.bookDescription);
-                setState(() {});
-              },
-            ),
-            BookTile(
-              image: 'assets/images/example_book.png',
-              title: 'A Educação da Vontade',
-              category: 'Auto Ajuda',
-              author: 'Jules Payot',
-              onTap: () async {
-                await Navigator.pushNamed(context, AppRoutes.bookDescription);
-                setState(() {});
-              },
-            ),
-            BookTile(
-              image: 'assets/images/example_book.png',
-              title: 'A Educação da Vontade',
-              category: 'Auto Ajuda',
-              author: 'Jules Payot',
-              onTap: () async {
-                await Navigator.pushNamed(context, AppRoutes.bookDescription);
-                setState(() {});
-              },
-            ),
-            BookTile(
-              image: 'assets/images/example_book.png',
-              title: 'A Educação da Vontade',
-              category: 'Auto Ajuda',
-              author: 'Jules Payot',
-              onTap: () async {
-                await Navigator.pushNamed(context, AppRoutes.bookDescription);
-                setState(() {});
-              },
-            ),
-            BookTile(
-              image: 'assets/images/example_book.png',
-              title: 'A Educação da Vontade',
-              category: 'Auto Ajuda',
-              author: 'Jules Payot',
-              onTap: () async {
-                await Navigator.pushNamed(context, AppRoutes.bookDescription);
-                setState(() {});
-              },
-            ),
-            BookTile(
-              image: 'assets/images/example_book.png',
-              title: 'A Educação da Vontade',
-              category: 'Auto Ajuda',
-              author: 'Jules Payot',
-              onTap: () async {
-                await Navigator.pushNamed(context, AppRoutes.bookDescription);
-                setState(() {});
-              },
-            ),
-            BookTile(
-              image: 'assets/images/example_book.png',
-              title: 'A Educação da Vontade',
-              category: 'Auto Ajuda',
-              author: 'Jules Payot',
-              onTap: () async {
-                await Navigator.pushNamed(context, AppRoutes.bookDescription);
-                setState(() {});
-              },
-            ),
-          ]),
+      body: ListView.builder(
+        physics: BouncingScrollPhysics(),
+        itemCount: books.length,
+        itemBuilder: (context, index) {
+          return BookTile(
+            book: books[index],
+            onTap: () =>
+                Navigator.pushNamed(context, AppRoutes.bookDescription),
+          );
+        },
+      ),
     );
   }
 }
