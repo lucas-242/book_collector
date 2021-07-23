@@ -1,8 +1,8 @@
 import 'package:book_collector/shared/themes/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
-class BookDescriptionWidget extends StatelessWidget {
-  const BookDescriptionWidget({Key? key}) : super(key: key);
+class BookDescription extends StatelessWidget {
+  const BookDescription({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

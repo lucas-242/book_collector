@@ -1,4 +1,4 @@
-import 'package:book_collector/modules/app/widgets/book_description/book_description_widget.dart';
+import 'package:book_collector/modules/book_description/book_description.dart';
 import 'package:flutter/material.dart';
 
 import 'modules/app/app.dart';
@@ -18,7 +18,7 @@ class MainApp extends StatelessWidget {
       routes: {
         // '/splash': (context) => SplashPage(),
         '/app': (context) => App(),
-        '/description_page': (context) => BookDescriptionWidget(),
+        '/book-description': (context) => BookDescription(),
       },
     );
   }
