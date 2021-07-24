@@ -1,4 +1,7 @@
+import 'package:book_collector/modules/collection/collection.dart';
+import 'package:book_collector/shared/themes/themes.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../app.dart';
 
@@ -10,29 +13,25 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
-  var pageIndex = 0;
-
-  var pages = [
-    Container(color: Colors.amber),
-    Container(color: Colors.blue),
-    Container(color: Colors.green),
-  ];
-
-  void changePage(int index) {
-    setState(() {
-      pageIndex = index;
-    });
-  }
+  late AppBloc appBloc;
 
   @override
   Widget build(BuildContext context) {
+    appBloc = context.watch<AppBloc>();
+    SizeConfig().init(context);
+
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
-        child: pages[pageIndex],
+        child: [
+          Container(),
+          Container(),
+          CollectionPage(),
+        ][appBloc.currentPageIndex],
       ),
       bottomNavigationBar: AppBottomNavigationBar(
-        currentPage: pageIndex,
-        onTap: (index) => changePage(index),
+        currentPage: appBloc.currentPageIndex,
+        onTap: (index) => appBloc.changePage(index),
       ),
     );
   }

@@ -48,12 +48,12 @@ class _AppBottomNavigationBarState extends State<AppBottomNavigationBar> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            activeIcon: Icon(Icons.account_balance_wallet),
-            icon: Icon(Icons.account_balance_wallet_outlined),
+            activeIcon: Icon(Icons.search),
+            icon: Icon(Icons.search_outlined),
             label: 'Busca',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.history),
+            icon: Icon(Icons.book_outlined),
             label: 'Coleção',
           ),
         ],
