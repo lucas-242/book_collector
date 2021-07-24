@@ -43,20 +43,8 @@ class _CollectionPageState extends State<CollectionPage> {
     return Scaffold(
       appBar: PreferredSize(
         child: Column(children: [
-          Stack(alignment: Alignment.bottomCenter, children: [
-            Container(
-              alignment: Alignment.center,
-              height: size.height / 4.8,
-              width: size.width,
-              color: Colors.blueGrey,
-              child: Padding(
-                padding: EdgeInsets.only(bottom: 30),
-                child: Text("Sua biblioteca na palma da mão",
-                    style: AppTextStyles.titleLibrary,
-                    textAlign: TextAlign.center),
-              ),
-            ),
-            Container(height: 25, color: Colors.white),
+          Stack(alignment: Alignment.center, children: [
+            Container(height: 70, color: Colors.blueGrey),
             Container(
               width: size.width / 1.4,
               height: 50,
@@ -78,19 +66,19 @@ class _CollectionPageState extends State<CollectionPage> {
                     isDense: true,
                     icon: Icon(
                       Icons.search,
-                      size: 30,
-                      color: AppColors.grey,
+                      size: 25,
+                      color: Colors.grey[400],
                     ),
                     hintText: "Procurando um livro específico?",
                     hintStyle: AppTextStyles.input,
-                    counterStyle: AppTextStyles.buttonGrey,
+                    counterStyle: AppTextStyles.cryptoTitle,
                   ),
                 ),
               ),
             ),
           ]),
         ]),
-        preferredSize: Size(size.width, size.height / 4.8),
+        preferredSize: Size(size.width, 80),
       ),
       body: ListView.builder(
         physics: BouncingScrollPhysics(),
@@ -106,3 +94,16 @@ class _CollectionPageState extends State<CollectionPage> {
     );
   }
 }
+
+//  Container(
+//             alignment: Alignment.bottomCenter,
+//             height: size.height / 5,
+//             width: size.width,
+//             color: Colors.blueGrey,
+//             child: Padding(
+//               padding: EdgeInsets.only(bottom: 30),
+//               child: Text("Sua biblioteca na palma da mão",
+//                   style: AppTextStyles.titleLibrary,
+//                   textAlign: TextAlign.center),
+//             ),
+//           ),
