@@ -1,14 +1,15 @@
+import 'package:book_collector/shared/themes/themes.dart';
 import 'package:flutter/material.dart';
 
-class SearchBar extends StatefulWidget {
+class SearchBar extends StatelessWidget {
   final Function()? onTap;
   final Function(String)? onChange;
   final Function(String)? onSubmitted;
   final String label;
   final bool showFiltersButton;
-  final Color? boxColor;
-  final Color? textColor;
-  final EdgeInsets? padding;
+  final Color boxColor;
+  final Color textColor;
+  final EdgeInsets padding;
 
   SearchBar({
     this.label = 'Pesquise algo aqui',
@@ -16,32 +17,18 @@ class SearchBar extends StatefulWidget {
     this.onTap,
     this.onSubmitted,
     this.onChange,
-    this.boxColor,
-    this.textColor,
-    this.padding,
-  });
-
-  @override
-  _SearchBarState createState() => _SearchBarState();
-}
-
-class _SearchBarState extends State<SearchBar> {
-  _handleSubmit(String search) {
-    widget.onSubmitted!(search);
-  }
-
-  _handleTap() {
-    widget.onTap!();
-  }
-
-  _handleChange(String search) {
-    widget.onChange!(search);
-  }
+    Color? boxColor,
+    Color? textColor,
+    EdgeInsets? padding,
+  })  : this.boxColor = boxColor ?? AppColors.grey.withAlpha(100),
+        this.textColor = textColor ?? AppColors.grey,
+        this.padding =
+            padding ?? EdgeInsets.symmetric(horizontal: 20, vertical: 20);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: widget.padding,
+      padding: padding,
       child: Row(
         children: <Widget>[
           Expanded(
@@ -49,30 +36,30 @@ class _SearchBarState extends State<SearchBar> {
               height: 55,
               alignment: Alignment.center,
               decoration: BoxDecoration(
-                color: widget.boxColor,
+                color: boxColor,
                 borderRadius: BorderRadius.all(Radius.circular(10)),
               ),
               child: TextField(
-                onSubmitted: (search) => _handleSubmit(search),
-                onTap: () => _handleTap(),
-                onChanged: (search) => _handleChange(search),
-                cursorColor: Colors.green,
+                onSubmitted: (search) => onSubmitted!(search),
+                onTap: () => onTap!(),
+                onChanged: (search) => onChange!(search),
+                cursorColor: AppColors.primary,
                 textAlignVertical: TextAlignVertical.center,
                 decoration: InputDecoration(
                   border: InputBorder.none,
-                  hintText: widget.label,
-                  hintStyle: TextStyle(fontSize: 16, color: widget.textColor),
+                  hintText: label,
+                  hintStyle: TextStyle(fontSize: 16, color: textColor),
                   contentPadding:
                       EdgeInsets.only(left: 10, right: 10, bottom: 7, top: 5),
                   prefixIcon: Icon(
                     Icons.search,
-                    color: Colors.grey,
+                    color: AppColors.grey,
                   ),
                 ),
               ),
             ),
           ),
-          if (widget.showFiltersButton) ...[
+          if (showFiltersButton) ...[
             SizedBox(width: 20),
             _filterButton(),
           ]
@@ -84,14 +71,14 @@ class _SearchBarState extends State<SearchBar> {
   Widget _filterButton() {
     return ConstrainedBox(
       constraints: BoxConstraints.tightFor(
-        width: 200,
-        height: 80,
+        width: SizeConfig.blockSizeHorizontal * 13.8,
+        height: SizeConfig.blockSizeHorizontal * 13.8,
       ),
       child: ElevatedButton(
         onPressed: () {},
-        child: Icon(Icons.tune, color: Colors.grey),
+        child: Icon(Icons.tune, color: AppColors.stroke),
         style: ElevatedButton.styleFrom(
-          primary: Colors.green,
+          primary: AppColors.primary,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10.0),
           ),
@@ -99,4 +86,37 @@ class _SearchBarState extends State<SearchBar> {
       ),
     );
   }
+
+  //TextFormField with rounded borders
+  // Container(
+  //   width: size.width / 1.4,
+  //   height: 50,
+  //   alignment: Alignment.center,
+  //   decoration: BoxDecoration(
+  //       color: Colors.grey[200],
+  //       borderRadius: BorderRadius.circular(40)),
+  //   child: Padding(
+  //     padding: EdgeInsets.only(left: 12),
+  //     child: TextField(
+  //       textCapitalization: TextCapitalization.sentences,
+  //       style: AppTextStyles.buttonGrey,
+  //       cursorHeight: 18,
+  //       cursorColor: AppColors.grey,
+  //       decoration: InputDecoration(
+  //         enabledBorder: InputBorder.none,
+  //         focusedBorder: InputBorder.none,
+  //         focusColor: Colors.grey[600],
+  //         isDense: true,
+  //         icon: Icon(
+  //           Icons.search,
+  //           size: 30,
+  //           color: AppColors.grey,
+  //         ),
+  //         hintText: "Procurando um livro específico?",
+  //         hintStyle: AppTextStyles.input,
+  //         counterStyle: AppTextStyles.buttonGrey,
+  //       ),
+  //     ),
+  //   ),
+  // ),
 }

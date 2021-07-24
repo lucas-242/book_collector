@@ -1,4 +1,5 @@
 import 'package:book_collector/modules/collection/collection.dart';
+import 'package:book_collector/shared/themes/themes.dart';
 import 'package:flutter/material.dart';
 
 import '../app.dart';
@@ -27,14 +28,17 @@ class _AppState extends State<App> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: SafeArea(
-        child: pages[pageIndex],
-      ),
-      bottomNavigationBar: AppBottomNavigationBar(
-        currentPage: pageIndex,
-        onTap: (index) => changePage(index),
+    SizeConfig().init(context);
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        body: SafeArea(
+          child: pages[pageIndex],
+        ),
+        bottomNavigationBar: AppBottomNavigationBar(
+          currentPage: pageIndex,
+          onTap: (index) => changePage(index),
+        ),
       ),
     );
   }
