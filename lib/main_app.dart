@@ -1,4 +1,5 @@
 import 'package:book_collector/modules/book_description/book_description.dart';
+import 'package:book_collector/shared/core/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -19,11 +20,11 @@ class MainApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         debugShowCheckedModeBanner: false,
-        initialRoute: '/app',
+        initialRoute: AppRoutes.app,
         routes: {
           // '/splash': (context) => SplashPage(),
-          '/app': (context) => App(),
-          '/book-description': (context) => BookDescription(),
+          AppRoutes.app: (context) => App(),
+          AppRoutes.bookDescription: (context) => BookDescription(),
         },
       ),
     );

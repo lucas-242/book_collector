@@ -1,3 +1,4 @@
+import 'package:book_collector/shared/themes/themes.dart';
 import 'package:flutter/material.dart';
 
 class AppBottomNavigationBar extends StatefulWidget {
@@ -37,8 +38,8 @@ class _AppBottomNavigationBarState extends State<AppBottomNavigationBar> {
       child: BottomNavigationBar(
         currentIndex: widget.currentPage,
         onTap: (index) => widget.onTap(index),
-        selectedItemColor: Colors.amber,
-        unselectedItemColor: Colors.grey,
+        selectedItemColor: AppColors.primary,
+        unselectedItemColor: AppColors.grey,
         showSelectedLabels: false,
         showUnselectedLabels: false,
         items: [

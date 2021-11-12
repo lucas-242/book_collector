@@ -13,19 +13,17 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
-  late AppBloc appBloc;
-
   @override
   Widget build(BuildContext context) {
-    appBloc = context.watch<AppBloc>();
-    SizeConfig().init(context);
+    var appBloc = context.watch<AppBloc>();
+    SizeConfig(context, kBottomNavigationBarHeight);
 
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
         child: [
-          Container(),
-          Container(),
+          Container(color: Colors.amber,),
+          Container(color: Colors.green,),
           CollectionPage(),
         ][appBloc.currentPageIndex],
       ),

@@ -22,13 +22,13 @@ class BookTile extends StatelessWidget {
         child: ListTile(
           leading: Container(
               height: 180, child: Image.asset(book.image!, height: 120)),
-          title: Text(book.name, style: AppTextStyles.buttonBoldGrey),
+          title: Text(book.name, style: AppTextStyles.bodyBold),
           subtitle: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(book.author, style: AppTextStyles.buttonGrey),
+              Text(book.author),
               SizedBox(height: 5),
-              Text(book.category, style: AppTextStyles.buttonGrey),
+              Text(book.category),
             ],
           ),
           trailing: Icon(Icons.arrow_forward_outlined),
