@@ -41,8 +41,8 @@ class Auth extends ChangeNotifier {
   ///
   /// Returns false if there was an error
   Future<bool> signOut() async {
-    return await GoogleSignIn().signOut().then((value) async {
-      return await FirebaseAuth.instance.signOut().then((value) {
+    return await GoogleSignIn().signOut().then((googleUser) async {
+      return await FirebaseAuth.instance.signOut().then((_) {
         user = null;
         return true;
       }).catchError((error) {

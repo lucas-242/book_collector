@@ -1,5 +1,6 @@
 import 'package:book_collector/shared/themes/themes.dart';
 import 'package:flutter/material.dart';
+import 'package:adaptive_theme/adaptive_theme.dart';
 
 class AppBottomNavigationBar extends StatefulWidget {
   final int currentPage;
@@ -39,7 +40,9 @@ class _AppBottomNavigationBarState extends State<AppBottomNavigationBar> {
         currentIndex: widget.currentPage,
         onTap: (index) => widget.onTap(index),
         selectedItemColor: AppColors.primary,
-        unselectedItemColor: AppColors.grey,
+        unselectedItemColor: AdaptiveTheme.of(context).mode == AdaptiveThemeMode.dark
+                ? AppColors.white
+                : AppColors.text,
         showSelectedLabels: false,
         showUnselectedLabels: false,
         items: [

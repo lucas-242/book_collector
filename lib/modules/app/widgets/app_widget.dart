@@ -1,9 +1,9 @@
-import 'package:book_collector/modules/collection/collection.dart';
-import 'package:book_collector/shared/themes/themes.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../app.dart';
+import '/modules/app/app.dart';
+import '/modules/collection/collection.dart';
+import '/shared/themes/themes.dart';
 
 class App extends StatefulWidget {
   const App({Key? key}) : super(key: key);
@@ -22,8 +22,12 @@ class _AppState extends State<App> {
       backgroundColor: Colors.white,
       body: SafeArea(
         child: [
-          Container(color: Colors.amber,),
-          Container(color: Colors.green,),
+          Container(
+            color: Colors.amber,
+          ),
+          Container(
+            color: Colors.green,
+          ),
           CollectionPage(),
         ][appBloc.currentPageIndex],
       ),
