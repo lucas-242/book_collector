@@ -1,6 +1,7 @@
-import 'package:book_collector/main_app.dart';
 import 'package:flutter/material.dart';
 
+import '/modules/app/app.dart';
+
 void main() {
-  runApp(MainApp());
+  runApp(App());
 }
