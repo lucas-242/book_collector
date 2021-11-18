@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -5,6 +7,8 @@ import 'package:google_sign_in/google_sign_in.dart';
 class Auth extends ChangeNotifier {
   ///User logged in
   User? user;
+
+  FirebaseAuth _auth = FirebaseAuth.instance;
 
   /// Sign in with google
   ///
@@ -26,9 +30,7 @@ class Auth extends ChangeNotifier {
       idToken: googleAuth.idToken,
     );
 
-    return await FirebaseAuth.instance
-        .signInWithCredential(credential)
-        .then((response) {
+    return await _auth.signInWithCredential(credential).then((response) {
       user = response.user;
       return true;
     }).catchError((error) {
@@ -42,7 +44,7 @@ class Auth extends ChangeNotifier {
   /// Returns false if there was an error
   Future<bool> signOut() async {
     return await GoogleSignIn().signOut().then((googleUser) async {
-      return await FirebaseAuth.instance.signOut().then((_) {
+      return await _auth.signOut().then((_) {
         user = null;
         return true;
       }).catchError((error) {

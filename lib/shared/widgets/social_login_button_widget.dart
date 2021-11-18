@@ -30,7 +30,7 @@ class SocialLoginButton extends StatelessWidget {
                 color: AppColors.stroke,
               ),
               SizedBox(width: 16),
-              Text('Cadastrar com Google', style: AppTextStyles.button),
+              Text('Entrar com Google', style: AppTextStyles.button),
             ],
           ),
         ),

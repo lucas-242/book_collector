@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '/modules/app/app.dart';
+import '/main_firebase.dart';
 
 void main() {
-  runApp(App());
+  runApp(MainFirebase());
 }

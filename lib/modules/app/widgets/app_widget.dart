@@ -4,7 +4,10 @@ import 'package:provider/provider.dart';
 
 import '/modules/app/app.dart';
 import '/modules/book_description/book_description.dart';
+import '/modules/login/login_page.dart';
+import '/modules/splash/splash.dart';
 import '/shared/core/app_routes.dart';
+import '/shared/auth/auth.dart';
 import '/shared/themes/themes.dart';
 
 class App extends StatefulWidget {
@@ -20,6 +23,7 @@ class _AppState extends State<App> {
 
     return MultiProvider(
       providers: [
+        ChangeNotifierProvider(create: (_) => Auth()),
         ChangeNotifierProvider(create: (_) => AppBloc()),
       ],
       child: AdaptiveTheme(
@@ -31,10 +35,11 @@ class _AppState extends State<App> {
           theme: lightTheme,
           darkTheme: darkTheme,
           debugShowCheckedModeBanner: false,
-          initialRoute: AppRoutes.app,
+          initialRoute: AppRoutes.splash,
           routes: {
-            // '/splash': (context) => SplashPage(),
+            AppRoutes.splash: (context) => SplashPage(),
             AppRoutes.app: (context) => AppShell(),
+            AppRoutes.login: (context) => LoginPage(),
             AppRoutes.bookDescription: (context) => BookDescription(),
           },
         ),
