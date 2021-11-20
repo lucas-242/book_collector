@@ -1,6 +1,7 @@
-import 'package:book_collector/main_app.dart';
 import 'package:flutter/material.dart';
 
+import '/main_firebase.dart';
+
 void main() {
-  runApp(MainApp());
+  runApp(MainFirebase());
 }

@@ -1,9 +1,14 @@
-import 'package:book_collector/modules/collection/collection.dart';
-import 'package:book_collector/shared/themes/themes.dart';
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../app.dart';
+import '/modules/app/app.dart';
+import '/modules/book_description/book_description.dart';
+import '/modules/login/login_page.dart';
+import '/modules/splash/splash.dart';
+import '/shared/core/app_routes.dart';
+import '/shared/auth/auth.dart';
+import '/shared/themes/themes.dart';
 
 class App extends StatefulWidget {
   const App({Key? key}) : super(key: key);
@@ -13,25 +18,31 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
-  late AppBloc appBloc;
-
   @override
   Widget build(BuildContext context) {
-    appBloc = context.watch<AppBloc>();
-    SizeConfig().init(context);
 
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: SafeArea(
-        child: [
-          Container(),
-          Container(),
-          CollectionPage(),
-        ][appBloc.currentPageIndex],
-      ),
-      bottomNavigationBar: AppBottomNavigationBar(
-        currentPage: appBloc.currentPageIndex,
-        onTap: (index) => appBloc.changePage(index),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => Auth()),
+        ChangeNotifierProvider(create: (_) => AppBloc()),
+      ],
+      child: AdaptiveTheme(
+        light: AppThemes.lightTheme,
+        dark: AppThemes.darkTheme,
+        initial: AdaptiveThemeMode.light,
+        builder: (lightTheme, darkTheme) => MaterialApp(
+          title: 'Book Collector',
+          theme: lightTheme,
+          darkTheme: darkTheme,
+          debugShowCheckedModeBanner: false,
+          initialRoute: AppRoutes.splash,
+          routes: {
+            AppRoutes.splash: (context) => SplashPage(),
+            AppRoutes.app: (context) => AppShell(),
+            AppRoutes.login: (context) => LoginPage(),
+            AppRoutes.bookDescription: (context) => BookDescription(),
+          },
+        ),
       ),
     );
   }
