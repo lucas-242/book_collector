@@ -20,17 +20,20 @@ class _SplashPageState extends State<SplashPage> {
 
   @override
   void initState() {
-    //TODO: Add timer
+    Timer(Duration(seconds: 3), () => listenUserChanges());
+    super.initState();
+  }
+
+  void listenUserChanges() {
     userStream = FirebaseAuth.instance.userChanges().listen((user) {
       if (user != null) {
         final auth = context.read<Auth>();
         auth.user = user;
         Navigator.pushReplacementNamed(context, AppRoutes.app);
-      } else
+      } else {
         Navigator.pushReplacementNamed(context, AppRoutes.login);
+      }
     });
-
-    super.initState();
   }
 
   @override
