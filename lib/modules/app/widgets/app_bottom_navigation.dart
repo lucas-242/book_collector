@@ -1,19 +1,15 @@
+import 'package:book_collector/shared/models/models.dart';
 import 'package:book_collector/shared/themes/themes.dart';
 import 'package:flutter/material.dart';
-import 'package:adaptive_theme/adaptive_theme.dart';
 
-class AppBottomNavigationBar extends StatefulWidget {
-  final int currentPage;
-  final Function(int) onTap;
+class AppBottomNavigationBar extends StatelessWidget {
+  final AppTab activeTab;
+  final Function(AppTab) onTabSelected;
+
   const AppBottomNavigationBar(
-      {Key? key, this.currentPage = 0, required this.onTap})
+      {Key? key, required this.activeTab, required this.onTabSelected})
       : super(key: key);
 
-  @override
-  _AppBottomNavigationBarState createState() => _AppBottomNavigationBarState();
-}
-
-class _AppBottomNavigationBarState extends State<AppBottomNavigationBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -37,12 +33,14 @@ class _AppBottomNavigationBarState extends State<AppBottomNavigationBar> {
         ],
       ),
       child: BottomNavigationBar(
-        currentIndex: widget.currentPage,
-        onTap: (index) => widget.onTap(index),
+        currentIndex: AppTab.values.indexOf(activeTab),
+        onTap: (index) => onTabSelected(AppTab.values[index]),
         selectedItemColor: AppColors.primary,
-        unselectedItemColor: AdaptiveTheme.of(context).mode == AdaptiveThemeMode.dark
-                ? AppColors.white
-                : AppColors.text,
+        unselectedItemColor: AppColors.text,
+        // unselectedItemColor:
+        //     AdaptiveTheme.of(context).mode == AdaptiveThemeMode.dark
+        //         ? AppColors.white
+        //         : AppColors.text,
         showSelectedLabels: false,
         showUnselectedLabels: false,
         items: [

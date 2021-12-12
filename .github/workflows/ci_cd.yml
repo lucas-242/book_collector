@@ -24,7 +24,11 @@ jobs:
           channel: "stable"
       - run: flutter pub get
       - run: flutter clean
-      - run: flutter build ios --release --no-codesign
+      - run: flutter build ios --release
+      # TODO: Add provide firebase config
+      # TODO: Add versioning in the releases
+      # TODO: Add tags to jobs
+
 
   build_android:
     name: Build (Android)
