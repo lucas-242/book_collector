@@ -8,6 +8,7 @@ class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
 
   static Page page() => const MaterialPage<void>(child: LoginPage());
+  // static Route<void> route() => MaterialPageRoute(builder: (_) => LoginPage());
 
   @override
   Widget build(BuildContext context) {
