@@ -16,33 +16,35 @@ class LoginRepositoryImpl implements LoginRepository {
   LoginRepositoryImpl({
     required CacheClient cache,
     required LoginDatasource loginDatasource,
-  }) : _cache = cache,
+  })  : _cache = cache,
         _loginDatasource = loginDatasource;
 
   @override
-  User get currentUser =>
-      _cache.read<User>(key: userCacheKey) ?? User.empty;
+  User get currentUser => _cache.read<User>(key: userCacheKey) ?? User.empty;
 
   @override
-  Future<void> logInWithEmailAndPassword(
-      {required String email, required String password}) {
+  Future<void>
+      logInWithEmailAndPassword(
+          {required String email, required String password}) {
     return _loginDatasource.logInWithEmailAndPassword(
         email: email, password: password);
   }
 
   @override
-  Future<void> logInWithGoogle() => _loginDatasource.logInWithGoogle();
+  Future<void> logInWithGoogle() =>
+      _loginDatasource.logInWithGoogle();
 
   @override
   Future<void> logOut() => _loginDatasource.logOut();
 
   @override
-  Future<void> signUp({required String email, required String password}) =>
+  Future<void> signUp(
+          {required String email, required String password}) =>
       _loginDatasource.signUp(email: email, password: password);
 
   @override
   Stream<User> get user {
     return _loginDatasource.user.asBroadcastStream(
-    onListen: (user) => {_cache.write(key: userCacheKey, value: user)});
+        onListen: (user) => {_cache.write(key: userCacheKey, value: user)});
   }
 }

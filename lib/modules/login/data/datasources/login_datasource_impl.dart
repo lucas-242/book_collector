@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:book_collector/modules/login/data/models/models.dart';
+import 'package:book_collector/modules/login/data/datasources/errors/errors.dart';
 import 'package:book_collector/modules/login/domain/domain.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import 'package:firebase_auth_platform_interface/firebase_auth_platform_interface.dart';
@@ -44,9 +44,9 @@ class LoginDatasourceImpl implements LoginDatasource {
         password: password,
       );
     } on FirebaseAuthException catch (e) {
-      throw LogInWithEmailAndPasswordFailure.fromCode(e.code);
+      throw LogInWithEmailAndPasswordExceptionImpl.fromCode(e.code);
     } catch (_) {
-      throw const LogInWithEmailAndPasswordFailure();
+      throw const LogInWithEmailAndPasswordExceptionImpl();
     }
   }
 
@@ -71,9 +71,9 @@ class LoginDatasourceImpl implements LoginDatasource {
 
       await _firebaseAuth.signInWithCredential(credential);
     } on FirebaseAuthException catch (e) {
-      throw LogInWithGoogleFailure.fromCode(e.code);
+      throw LogInWithGoogleExceptionImpl.fromCode(e.code);
     } catch (_) {
-      throw const LogInWithGoogleFailure();
+      throw LogInWithGoogleExceptionImpl();
     }
   }
 
@@ -85,7 +85,7 @@ class LoginDatasourceImpl implements LoginDatasource {
         _googleSignIn.signOut(),
       ]);
     } catch (_) {
-      throw LogOutFailure();
+      throw LogOutExceptionImpl();
     }
   }
 
@@ -97,9 +97,9 @@ class LoginDatasourceImpl implements LoginDatasource {
         password: password,
       );
     } on FirebaseAuthException catch (e) {
-      throw SignUpWithEmailAndPasswordFailure.fromCode(e.code);
+      throw SignUpWithEmailAndPasswordExceptionImpl.fromCode(e.code);
     } catch (_) {
-      throw const SignUpWithEmailAndPasswordFailure();
+      throw const SignUpWithEmailAndPasswordExceptionImpl();
     }
   }
 }

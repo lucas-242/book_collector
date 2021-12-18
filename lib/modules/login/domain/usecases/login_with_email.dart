@@ -7,7 +7,7 @@ class LoginWithEmail {
       : _repository = repository;
 
   Future<void> call({required String email, required String password}) async {
-    await _repository.logInWithEmailAndPassword(
+    return await _repository.logInWithEmailAndPassword(
         email: email, password: password);
   }
 }

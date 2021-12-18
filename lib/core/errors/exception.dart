@@ -1,11 +1,11 @@
-class ServerException implements Exception {
+abstract class ServerException implements Exception {
   final String message;
   const ServerException(this.message);
 
   List<Object> get props => [message];
 }
 
-class CacheException implements Exception {
+abstract class CacheException implements Exception {
   final String message;
   const CacheException(this.message);
 
