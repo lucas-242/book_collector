@@ -8,7 +8,7 @@ import 'modules/app/app.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  final authenticationRepository = AuthenticationRepository();
+  IAuthenticationRepository authenticationRepository = AuthenticationRepository();
   await authenticationRepository.user.first;
   BlocOverrides.runZoned(
     () => runApp(AppProvider(authenticationRepository: authenticationRepository)),

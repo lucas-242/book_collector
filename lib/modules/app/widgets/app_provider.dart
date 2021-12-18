@@ -7,11 +7,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 
 class AppProvider extends StatelessWidget {
-  final AuthenticationRepository _authenticationRepository;
+  final IAuthenticationRepository _authenticationRepository;
 
   const AppProvider({
     Key? key,
-    required AuthenticationRepository authenticationRepository,
+    required IAuthenticationRepository authenticationRepository,
   })  : _authenticationRepository = authenticationRepository,
         super(key: key);
 

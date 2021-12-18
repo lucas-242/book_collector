@@ -1,5 +1,4 @@
 library authentication_repository;
 
-export 'src/authentication_repository.dart';
-export 'src/exceptions/exceptions.dart';
-export 'src/models/models.dart';
+export 'src/domain/domain.dart';
+export 'src/infra/repositories/authentication_repository.dart';
