@@ -1,17 +1,17 @@
-import 'package:authentication_repository/authentication_repository.dart';
 import 'package:bloc/bloc.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
+import './injection_container.dart' as di;
 import 'modules/app/app.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  IAuthenticationRepository authenticationRepository = AuthenticationRepository();
-  await authenticationRepository.user.first;
+  await di.init();
+  // await loginRepository.user.first;
   BlocOverrides.runZoned(
-    () => runApp(AppProvider(authenticationRepository: authenticationRepository)),
+    () => runApp(AppProvider()),
     blocObserver: AppBlocObserver(),
   );
 }
