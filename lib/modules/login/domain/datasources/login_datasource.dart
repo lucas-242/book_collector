@@ -6,11 +6,11 @@ import 'package:book_collector/modules/login/domain/domain.dart';
 /// Datasource which manages user authentication with Firebase.
 /// {@endtemplate}
 abstract class LoginDatasource {
-   /// Stream of [User] which will emit the current user when
+   /// Stream of [AppUser] which will emit the current user when
   /// the authentication state changes.
   ///
-  /// Emits [User.empty] if the user is not authenticated.
-  Stream<User> get user;
+  /// Emits [AppUser.empty] if the user is not authenticated.
+  Stream<AppUser> get user;
 
   /// Signs in with the provided [email] and [password].
   ///
@@ -26,7 +26,7 @@ abstract class LoginDatasource {
   Future<void> logInWithGoogle();
 
   /// Signs out the current user which will emit
-  /// [User.empty] from the [user] Stream.
+  /// [AppUser.empty] from the [user] Stream.
   ///
   /// Throws a [LogOutException] if an exception occurs.
   Future<void> logOut();

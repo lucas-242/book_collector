@@ -26,7 +26,7 @@ class AppBloc extends Bloc<AppEvent, AppState> {
   }
 
   final LoginRepository _loginRepository;
-  late final StreamSubscription<User> _userSubscription;
+  late final StreamSubscription<AppUser> _userSubscription;
 
   void _onUserChanged(AppUserChanged event, Emitter<AppState> emit) {
     emit(event.user.isNotEmpty

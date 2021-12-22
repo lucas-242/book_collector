@@ -20,7 +20,7 @@ class LoginRepositoryImpl implements LoginRepository {
         _loginDatasource = loginDatasource;
 
   @override
-  User get currentUser => _cache.read<User>(key: userCacheKey) ?? User.empty;
+  AppUser get currentUser => _cache.read<AppUser>(key: userCacheKey) ?? AppUser.empty;
 
   @override
   Future<void>
@@ -43,7 +43,7 @@ class LoginRepositoryImpl implements LoginRepository {
       _loginDatasource.signUp(email: email, password: password);
 
   @override
-  Stream<User> get user {
+  Stream<AppUser> get user {
     return _loginDatasource.user.asBroadcastStream(
         onListen: (user) => {_cache.write(key: userCacheKey, value: user)});
   }

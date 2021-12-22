@@ -20,9 +20,9 @@ class LoginDatasourceImpl implements LoginDatasource {
   bool isWeb = kIsWeb;
 
   @override
-  Stream<User> get user {
+  Stream<AppUser> get user {
     return _firebaseAuth.authStateChanges().map((firebaseUser) {
-      final user = firebaseUser == null ? User.empty : firebaseUser.toUser;
+      final user = firebaseUser == null ? AppUser.empty : firebaseUser.toUser;
       return user;
     });
   }
@@ -105,7 +105,7 @@ class LoginDatasourceImpl implements LoginDatasource {
 }
 
 extension on firebase_auth.User {
-  User get toUser {
-    return User(id: uid, email: email, name: displayName, photo: photoURL);
+  AppUser get toUser {
+    return AppUser(id: uid, email: email, name: displayName, photo: photoURL);
   }
 }
