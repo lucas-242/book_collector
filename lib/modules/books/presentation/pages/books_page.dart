@@ -1,6 +1,6 @@
-import 'package:book_collector/core/models/models.dart';
 import 'package:book_collector/core/routes/app_routes.dart';
 import 'package:book_collector/core/widgets/search_bar_widget.dart';
+import 'package:book_collector/modules/books/books.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/book_tile_widget.dart';
