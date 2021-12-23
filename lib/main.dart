@@ -1,7 +1,17 @@
+import 'package:bloc/bloc.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-import '/main_firebase.dart';
+import './injection_container.dart' as di;
+import 'modules/app/app.dart';
 
-void main() {
-  runApp(MainFirebase());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  await di.init();
+  // await loginRepository.user.first;
+  BlocOverrides.runZoned(
+    () => runApp(AppProvider()),
+    blocObserver: AppBlocObserver(),
+  );
 }
