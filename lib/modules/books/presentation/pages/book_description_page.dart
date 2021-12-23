@@ -1,4 +1,4 @@
-import 'package:book_collector/shared/themes/app_text_styles.dart';
+import 'package:book_collector/core/themes/themes.dart';
 import 'package:flutter/material.dart';
 
 class BookDescription extends StatelessWidget {

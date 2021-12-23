@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '/shared/themes/themes.dart';
+import './themes.dart';
 
 
 abstract class AppThemes {

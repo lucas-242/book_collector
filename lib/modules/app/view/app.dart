@@ -1,5 +1,6 @@
+import 'package:book_collector/core/models/models.dart';
+import 'package:book_collector/core/routes/routes.dart';
 import 'package:book_collector/modules/app/app.dart';
-import 'package:book_collector/shared/models/models.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flow_builder/flow_builder.dart';
 import 'package:flutter/material.dart';

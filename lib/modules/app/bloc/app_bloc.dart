@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:book_collector/core/models/models.dart';
 import 'package:book_collector/modules/login/domain/domain.dart';
-import 'package:book_collector/shared/models/models.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 import 'package:very_good_analysis/very_good_analysis.dart';

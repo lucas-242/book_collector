@@ -1,7 +1,7 @@
-import 'package:book_collector/shared/models/book.dart';
+import 'package:book_collector/core/models/models.dart';
+import 'package:book_collector/core/themes/themes.dart';
 import 'package:flutter/material.dart';
 
-import 'package:book_collector/shared/themes/themes.dart';
 
 class BookTile extends StatelessWidget {
   final Book book;

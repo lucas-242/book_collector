@@ -1,6 +1,6 @@
+import 'package:book_collector/core/themes/themes.dart';
 import 'package:book_collector/modules/app/app.dart';
 import 'package:book_collector/modules/home/home.dart';
-import 'package:book_collector/shared/themes/themes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

@@ -1,12 +1,12 @@
+import 'package:book_collector/core/blocs/blocs.dart';
+import 'package:book_collector/core/models/models.dart';
+import 'package:book_collector/core/themes/themes.dart';
+import 'package:book_collector/modules/app/app.dart';
+import 'package:book_collector/modules/books/books.dart';
 import 'package:book_collector/modules/home/home.dart';
-import 'package:book_collector/shared/blocs/blocs.dart';
-import 'package:book_collector/shared/models/models.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '/modules/app/app.dart';
-import '/modules/collection/collection.dart';
-import '/shared/themes/themes.dart';
 
 class AppShell extends StatelessWidget {
   const AppShell();
@@ -35,7 +35,7 @@ class AppShell extends StatelessWidget {
       case AppTab.search:
         return Container(color: Colors.amber);
       case AppTab.books:
-        return CollectionPage();
+        return BooksPage();
       default:
         return HomePage();
     }

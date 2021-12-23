@@ -1,18 +1,18 @@
-import 'package:book_collector/shared/core/app_routes.dart';
-import 'package:book_collector/shared/models/book.dart';
-import 'package:book_collector/shared/widgets/search_bar_widget.dart';
+import 'package:book_collector/core/models/models.dart';
+import 'package:book_collector/core/routes/app_routes.dart';
+import 'package:book_collector/core/widgets/search_bar_widget.dart';
 import 'package:flutter/material.dart';
 
-import 'widgets/book_tile_widget.dart';
+import '../widgets/book_tile_widget.dart';
 
-class CollectionPage extends StatefulWidget {
-  const CollectionPage({Key? key}) : super(key: key);
+class BooksPage extends StatefulWidget {
+  const BooksPage({Key? key}) : super(key: key);
 
   @override
-  _CollectionPageState createState() => _CollectionPageState();
+  _BooksPageState createState() => _BooksPageState();
 }
 
-class _CollectionPageState extends State<CollectionPage> {
+class _BooksPageState extends State<BooksPage> {
   Book book = Book(
     id: 'abc',
     edition: 'Primeira edição',
