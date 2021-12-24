@@ -1,6 +1,10 @@
 import 'package:book_collector/modules/books/books.dart';
 
 class BookRepositoryImpl implements BookRepository {
+  final BookDatasource _bookDatasource;
+
+  BookRepositoryImpl(BookDatasource datasource) : _bookDatasource = datasource;
+
   @override
   Future<Book> create(Book book) {
     // TODO: implement create
@@ -26,9 +30,8 @@ class BookRepositoryImpl implements BookRepository {
   }
 
   @override
-  Future<List<Book>> search({String? name, String? category, String? author}) {
-    // TODO: implement search
-    throw UnimplementedError();
+  Future<List<Book>> search(String search, {String? category, String? author}) {
+    return _bookDatasource.search(search);
   }
 
   @override
@@ -36,5 +39,4 @@ class BookRepositoryImpl implements BookRepository {
     // TODO: implement update
     throw UnimplementedError();
   }
-
 }

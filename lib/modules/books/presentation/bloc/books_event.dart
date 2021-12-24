@@ -6,3 +6,9 @@ abstract class BooksEvent extends Equatable {
   @override
   List<Object> get props => [];
 }
+
+class SearchBooksEvent extends BooksEvent {
+  final String search;
+
+  SearchBooksEvent(this.search);
+}

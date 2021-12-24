@@ -2,38 +2,38 @@ import 'package:equatable/equatable.dart';
 
 class Book extends Equatable {
   final String id;
-  final String author;
-  final String category;
+  final List<String> authors;
+  final List<String> categories;
   final DateTime createdAt;
-  final String edition;
-  final bool isBestSeller;
-  final bool isVerified;
-  final String name;
+  final String? edition;
+  final String title;
+  final String? subtitle;
   final String? originalTitle;
   final int? pages;
-  final String publishedBy;
-  final double? rating;
+  final String? publisher;
+  final DateTime? publishedDate;
+  final double? averageRating;
+  final int? ratingsCount;
   final String? summary;
   final DateTime updatedAt;
-  final int year;
   final String? image;
 
   Book({
     required this.id,
-    required this.author,
-    required this.category,
+    required this.authors,
+    required this.categories,
     DateTime? createdAt,
-    required this.edition,
-    this.isBestSeller = false,
-    this.isVerified = true,
-    required this.name,
+    this.edition,
+    required this.title,
+    this.subtitle,
     this.originalTitle,
     this.pages,
-    required this.publishedBy,
-    this.rating,
+    this.publisher,
+    this.averageRating,
+    this.ratingsCount,
     this.summary,
+    this.publishedDate,
     DateTime? updatedAt,
-    required this.year,
     this.image,
   })  : this.updatedAt = updatedAt ?? DateTime.now(),
         this.createdAt = createdAt ?? DateTime.now();
@@ -41,20 +41,18 @@ class Book extends Equatable {
   @override
   List<Object?> get props => [
         id,
-        author,
-        category,
+        authors,
+        categories,
         createdAt,
         edition,
-        isBestSeller,
-        isVerified,
-        name,
+        title,
         originalTitle,
         pages,
-        publishedBy,
-        rating,
+        publisher,
+        publishedDate,
+        averageRating,
         summary,
         updatedAt,
-        year,
         image,
       ];
 }

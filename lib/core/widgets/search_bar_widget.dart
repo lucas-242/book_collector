@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 class SearchBar extends StatelessWidget {
   final Function()? onTap;
-  final Function(String)? onChange;
-  final Function(String)? onSubmitted;
+  final void Function(String)? onChange;
+  final void Function(String)? onSubmitted;
   final String label;
   final bool showFiltersButton;
   final Color boxColor;
@@ -40,9 +40,9 @@ class SearchBar extends StatelessWidget {
                 borderRadius: BorderRadius.all(Radius.circular(10)),
               ),
               child: TextField(
-                onSubmitted: (search) => onSubmitted!(search),
-                onTap: () => onTap!(),
-                onChanged: (search) => onChange!(search),
+                onSubmitted: onSubmitted,
+                onTap: onTap,
+                onChanged: onChange,
                 cursorColor: AppColors.primary,
                 textAlignVertical: TextAlignVertical.center,
                 decoration: InputDecoration(

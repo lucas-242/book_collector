@@ -2,7 +2,6 @@ import 'package:book_collector/core/themes/themes.dart';
 import 'package:book_collector/modules/books/books.dart';
 import 'package:flutter/material.dart';
 
-
 class BookTile extends StatelessWidget {
   final Book book;
   final VoidCallback? onTap;
@@ -21,14 +20,20 @@ class BookTile extends StatelessWidget {
         elevation: 3,
         child: ListTile(
           leading: Container(
-              height: 180, child: Image.asset(book.image!, height: 120)),
-          title: Text(book.name, style: AppTextStyles.bodyBold),
+            height: 180,
+            child: book.image != null
+                ? Image.network(book.image!, height: 180)
+                : Image.asset(AppImages.noImage, height: 180)
+          ),
+          title: Text(book.title, style: AppTextStyles.bodyBold),
           subtitle: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(book.author),
-              SizedBox(height: 5),
-              Text(book.category),
+              SizedBox(height: 8),
+              Text(book.subtitle ?? book.summary ?? ''),
+              SizedBox(height: 8),
+              Text(book.authors.reduce((value, element) => value + ', ' + element)),
+              // Text(book.categories),
             ],
           ),
           trailing: Icon(Icons.arrow_forward_outlined),
