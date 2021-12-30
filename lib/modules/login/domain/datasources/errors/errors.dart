@@ -1,4 +1,4 @@
-import 'package:book_collector/core/errors/exception.dart';
+import 'package:book_collector/core/models/errors/exception.dart';
 
 abstract class LogInWithGoogleException extends ServerException {
   LogInWithGoogleException(String message) : super(message);
