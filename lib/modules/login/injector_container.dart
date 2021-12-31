@@ -1,4 +1,4 @@
-import 'package:book_collector/modules/login/data/datasources/login_datasource_impl.dart';
+import 'package:book_collector/modules/login/data/datasources/login_datasource.dart';
 import 'package:book_collector/modules/login/login.dart';
 import 'package:get_it/get_it.dart';
 
@@ -18,9 +18,9 @@ Future<void> init() async {
   instance.registerLazySingleton(() => LoginWithGoogle(repository: instance()));
 
   // Repositories
-  instance.registerLazySingleton<LoginRepository>(() =>
-      LoginRepositoryImpl(cache: instance(), loginDatasource: instance()));
+  instance.registerLazySingleton<ILoginRepository>(() =>
+      LoginRepository(cache: instance(), loginDatasource: instance()));
 
   // Datasources
-  instance.registerLazySingleton<LoginDatasource>(() => LoginDatasourceImpl());
+  instance.registerLazySingleton<ILoginDatasource>(() => LoginDatasource());
 }

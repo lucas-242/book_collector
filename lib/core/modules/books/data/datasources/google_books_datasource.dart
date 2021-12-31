@@ -3,7 +3,7 @@ import 'package:book_collector/core/modules/books/data/models/google_book_search
 import 'package:book_collector/core/modules/books/domain/domain.dart';
 import 'package:http/http.dart' as http;
 
-class GoogleBooksDataSourceImpl implements BookDatasource {
+class GoogleBooksDataSource implements IBookDatasource {
   @override
   Future<List<Book>> search(String searchTerms) async {
     final uri = Uri.parse('${Configs.bookApi}/volumes?q=$searchTerms');

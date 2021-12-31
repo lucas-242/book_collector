@@ -5,7 +5,7 @@ import 'package:book_collector/modules/login/login.dart';
 /// {@template authentication_repository}
 /// Repository which manages user authentication.
 /// {@endtemplate}
-abstract class LoginRepository {
+abstract class ILoginRepository {
   /// Stream of [AppUser] which will emit the current user when
   /// the authentication state changes.
   ///

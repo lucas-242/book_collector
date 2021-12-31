@@ -1,5 +1,5 @@
 import 'package:book_collector/core/modules/books/books.dart';
-import 'package:book_collector/core/modules/books/data/repositories/book_repository_impl.dart';
+import 'package:book_collector/core/modules/books/data/repositories/book_repository.dart';
 import 'package:get_it/get_it.dart';
 
 final instance = GetIt.instance;
@@ -9,9 +9,9 @@ Future<void> init() async {
   instance.registerLazySingleton(() => SearchBook(repository: instance()));
 
   // Repositories
-  instance.registerLazySingleton<BookRepository>(() =>
-      BookRepositoryImpl(instance()));
+  instance.registerLazySingleton<IBookRepository>(() =>
+      BookRepository(instance()));
 
   // Datasources
-  instance.registerLazySingleton<BookDatasource>(() => GoogleBooksDataSourceImpl());
+  instance.registerLazySingleton<IBookDatasource>(() => GoogleBooksDataSource());
 }

@@ -1,9 +1,9 @@
 import 'package:book_collector/core/modules/books/books.dart';
 
-class BookRepositoryImpl implements BookRepository {
-  final BookDatasource _bookDatasource;
+class BookRepository implements IBookRepository {
+  final IBookDatasource _bookDatasource;
 
-  BookRepositoryImpl(BookDatasource datasource) : _bookDatasource = datasource;
+  BookRepository(IBookDatasource datasource) : _bookDatasource = datasource;
 
   @override
   Future<Book> create(Book book) {

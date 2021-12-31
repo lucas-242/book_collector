@@ -8,7 +8,7 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:meta/meta.dart';
 
-class LoginDatasourceImpl implements LoginDatasource {
+class LoginDatasource implements ILoginDatasource {
   final firebase_auth.FirebaseAuth _firebaseAuth;
   final GoogleSignIn _googleSignIn;
 
@@ -27,7 +27,7 @@ class LoginDatasourceImpl implements LoginDatasource {
     });
   }
 
-  LoginDatasourceImpl({
+  LoginDatasource({
     firebase_auth.FirebaseAuth? firebaseAuth,
     GoogleSignIn? googleSignIn,
   })  : _firebaseAuth = firebaseAuth ?? firebase_auth.FirebaseAuth.instance,
@@ -44,9 +44,9 @@ class LoginDatasourceImpl implements LoginDatasource {
         password: password,
       );
     } on FirebaseAuthException catch (e) {
-      throw LogInWithEmailAndPasswordExceptionImpl.fromCode(e.code);
+      throw LogInWithEmailAndPasswordException.fromCode(e.code);
     } catch (_) {
-      throw const LogInWithEmailAndPasswordExceptionImpl();
+      throw const LogInWithEmailAndPasswordException();
     }
   }
 
@@ -71,9 +71,9 @@ class LoginDatasourceImpl implements LoginDatasource {
 
       await _firebaseAuth.signInWithCredential(credential);
     } on FirebaseAuthException catch (e) {
-      throw LogInWithGoogleExceptionImpl.fromCode(e.code);
+      throw LogInWithGoogleException.fromCode(e.code);
     } catch (_) {
-      throw LogInWithGoogleExceptionImpl();
+      throw LogInWithGoogleException();
     }
   }
 
@@ -85,7 +85,7 @@ class LoginDatasourceImpl implements LoginDatasource {
         _googleSignIn.signOut(),
       ]);
     } catch (_) {
-      throw LogOutExceptionImpl();
+      throw LogOutException();
     }
   }
 
@@ -97,9 +97,9 @@ class LoginDatasourceImpl implements LoginDatasource {
         password: password,
       );
     } on FirebaseAuthException catch (e) {
-      throw SignUpWithEmailAndPasswordExceptionImpl.fromCode(e.code);
+      throw SignUpWithEmailAndPasswordException.fromCode(e.code);
     } catch (_) {
-      throw const SignUpWithEmailAndPasswordExceptionImpl();
+      throw const SignUpWithEmailAndPasswordException();
     }
   }
 }

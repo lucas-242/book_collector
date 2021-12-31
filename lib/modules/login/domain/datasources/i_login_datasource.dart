@@ -5,7 +5,7 @@ import 'package:book_collector/modules/login/domain/domain.dart';
 /// {@template authentication_repository}
 /// Datasource which manages user authentication with Firebase.
 /// {@endtemplate}
-abstract class LoginDatasource {
+abstract class ILoginDatasource {
    /// Stream of [AppUser] which will emit the current user when
   /// the authentication state changes.
   ///

@@ -1,4 +1,4 @@
-export 'datasources/book_datasource.dart';
+export 'datasources/i_book_datasource.dart';
 export './entities/book.dart';
-export './repositories/book_repository.dart';
+export 'repositories/i_book_repository.dart';
 export './usecases/search_book.dart';

@@ -3,39 +3,39 @@ import 'package:book_collector/modules/login/domain/domain.dart';
 /// {@template sign_up_with_email_and_password_failure}
 /// Thrown if during the sign up process if a failure occurs.
 /// {@endtemplate}
-class SignUpWithEmailAndPasswordExceptionImpl implements SignUpWithEmailAndPasswordException {
+class SignUpWithEmailAndPasswordException implements ISignUpWithEmailAndPasswordException {
   /// {@macro sign_up_with_email_and_password_failure}
-  const SignUpWithEmailAndPasswordExceptionImpl([
+  const SignUpWithEmailAndPasswordException([
     this.message = 'An unknown exception occurred.',
   ]);
 
   /// Create an authentication message
   /// from a firebase authentication exception code.
   /// https://pub.dev/documentation/firebase_auth/latest/firebase_auth/FirebaseAuth/createUserWithEmailAndPassword.html
-  factory SignUpWithEmailAndPasswordExceptionImpl.fromCode(String code) {
+  factory SignUpWithEmailAndPasswordException.fromCode(String code) {
     switch (code) {
       case 'invalid-email':
-        return const SignUpWithEmailAndPasswordExceptionImpl(
+        return const SignUpWithEmailAndPasswordException(
           'Email is not valid or badly formatted.',
         );
       case 'user-disabled':
-        return const SignUpWithEmailAndPasswordExceptionImpl(
+        return const SignUpWithEmailAndPasswordException(
           'This user has been disabled. Please contact support for help.',
         );
       case 'email-already-in-use':
-        return const SignUpWithEmailAndPasswordExceptionImpl(
+        return const SignUpWithEmailAndPasswordException(
           'An account already exists for that email.',
         );
       case 'operation-not-allowed':
-        return const SignUpWithEmailAndPasswordExceptionImpl(
+        return const SignUpWithEmailAndPasswordException(
           'Operation is not allowed.  Please contact support.',
         );
       case 'weak-password':
-        return const SignUpWithEmailAndPasswordExceptionImpl(
+        return const SignUpWithEmailAndPasswordException(
           'Please enter a stronger password.',
         );
       default:
-        return const SignUpWithEmailAndPasswordExceptionImpl();
+        return const SignUpWithEmailAndPasswordException();
     }
   }
 

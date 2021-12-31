@@ -4,8 +4,8 @@ import 'package:book_collector/core/cache/cache.dart';
 import 'package:book_collector/modules/login/domain/domain.dart';
 import 'package:meta/meta.dart';
 
-class LoginRepositoryImpl implements LoginRepository {
-  final LoginDatasource _loginDatasource;
+class LoginRepository implements ILoginRepository {
+  final ILoginDatasource _loginDatasource;
   final CacheClient _cache;
 
   /// User cache key.
@@ -13,9 +13,9 @@ class LoginRepositoryImpl implements LoginRepository {
   @visibleForTesting
   static const userCacheKey = '__user_cache_key__';
 
-  LoginRepositoryImpl({
+  LoginRepository({
     required CacheClient cache,
-    required LoginDatasource loginDatasource,
+    required ILoginDatasource loginDatasource,
   })  : _cache = cache,
         _loginDatasource = loginDatasource;
 

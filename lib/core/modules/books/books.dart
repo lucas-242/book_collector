@@ -1,4 +1,4 @@
-export './data/datasources/google_books_datasource_impl.dart';
+export 'data/datasources/google_books_datasource.dart';
 export './domain/domain.dart';
-export './domain/repositories/book_repository.dart';
+export 'domain/repositories/i_book_repository.dart';
 export './presentation/presentation.dart';
