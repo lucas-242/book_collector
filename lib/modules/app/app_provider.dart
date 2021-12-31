@@ -1,4 +1,3 @@
-import 'package:book_collector/core/blocs/blocs.dart';
 import 'package:book_collector/modules/app/app.dart';
 import 'package:book_collector/modules/search/search.dart';
 import 'package:flutter/material.dart';

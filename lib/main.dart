@@ -9,7 +9,6 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   await di.init();
-  // await loginRepository.user.first;
   BlocOverrides.runZoned(
     () => runApp(AppProvider()),
     blocObserver: AppBlocObserver(),

@@ -1,5 +1,5 @@
 import 'package:book_collector/core/models/models.dart';
-import 'package:book_collector/modules/app/view/app_shell.dart';
+import 'package:book_collector/modules/app/app.dart';
 import 'package:book_collector/modules/login/login.dart';
 import 'package:flutter/widgets.dart';
 
