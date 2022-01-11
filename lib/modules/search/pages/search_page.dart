@@ -1,5 +1,4 @@
 import 'package:book_collector/core/modules/books/books.dart';
-import 'package:book_collector/core/routes/app_routes.dart';
 import 'package:book_collector/core/widgets/search_bar_widget.dart';
 import 'package:book_collector/modules/search/search.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +10,7 @@ class SearchPage extends StatefulWidget {
   @override
   _SearchPageState createState() => _SearchPageState();
 
+  static Page page() => const MaterialPage<void>(child: SearchPage());
 }
 
 class _SearchPageState extends State<SearchPage> {
@@ -48,10 +48,14 @@ class _SearchPageState extends State<SearchPage> {
                   physics: BouncingScrollPhysics(),
                   itemCount: state.books.length,
                   itemBuilder: (context, index) {
-                    return BookTile(
-                      book: state.books[index],
-                      onTap: () => Navigator.pushNamed(
-                          context, AppRoutes.bookDescription),
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                      child: BookTile(
+                        book: state.books[index],
+                        onTap: () => context
+                            .read<SearchBloc>()
+                            .add(SelectBookEvent(state.books[index])),
+                      ),
                     );
                   },
                 ),

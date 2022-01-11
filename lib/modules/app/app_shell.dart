@@ -33,7 +33,7 @@ class AppShell extends StatelessWidget {
   Widget body(AppTab activeTab) {
     switch (activeTab) {
       case AppTab.search:
-        return SearchPage();
+        return SearchFlow();
       case AppTab.collection:
         return CollectionPage();
       default:

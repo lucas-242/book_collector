@@ -12,3 +12,9 @@ class SearchBooksEvent extends SearchEvent {
 
   SearchBooksEvent(this.search);
 }
+
+class SelectBookEvent extends SearchEvent {
+  final Book? book;
+
+  SelectBookEvent(this.book);
+}

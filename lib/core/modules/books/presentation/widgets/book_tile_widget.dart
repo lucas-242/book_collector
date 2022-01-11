@@ -14,30 +14,42 @@ class BookTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Card(
-        elevation: 3,
+    return Card(
+      elevation: 3,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 10.0),
         child: ListTile(
+          onTap: onTap,
+          isThreeLine: true,
           leading: Container(
-            height: 180,
-            child: book.image != null
-                ? Image.network(book.image!, height: 180)
-                : Image.asset(AppImages.noImage, height: 180)
+              height: 180,
+              child: book.image != null
+                  ? Image.network(book.image!, height: 180)
+                  : Image.asset(AppImages.noImage, height: 180)),
+          title: Text(
+            book.title,
+            style: AppTextStyles.bodyBold,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
           ),
-          title: Text(book.title, style: AppTextStyles.bodyBold),
           subtitle: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: 8),
-              Text(book.subtitle ?? book.summary ?? ''),
+              Text(
+                book.subtitle ?? book.summary ?? '',
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+              ),
               SizedBox(height: 8),
-              Text(book.authors.reduce((value, element) => value + ', ' + element)),
-              // Text(book.categories),
+              Text(
+                book.authors.reduce((value, element) => value + ', ' + element),
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+              ),
             ],
           ),
-          trailing: Icon(Icons.arrow_forward_outlined),
-          isThreeLine: true,
+          // trailing: Icon(Icons.arrow_forward_outlined),
         ),
       ),
     );

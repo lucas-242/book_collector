@@ -20,7 +20,7 @@ class SearchBar extends StatelessWidget {
     Color? boxColor,
     Color? textColor,
     EdgeInsets? padding,
-  })  : this.boxColor = boxColor ?? AppColors.grey.withAlpha(100),
+  })  : this.boxColor = boxColor ?? AppColors.input.withAlpha(100),
         this.textColor = textColor ?? AppColors.grey,
         this.padding =
             padding ?? EdgeInsets.symmetric(horizontal: 20, vertical: 20);
