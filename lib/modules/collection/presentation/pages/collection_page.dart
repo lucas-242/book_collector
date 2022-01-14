@@ -6,6 +6,7 @@ class CollectionPage extends StatefulWidget {
   @override
   _CollectionPageState createState() => _CollectionPageState();
 
+  static Page page() => const MaterialPage<void>(child: CollectionPage());
 }
 
 class _CollectionPageState extends State<CollectionPage> {
