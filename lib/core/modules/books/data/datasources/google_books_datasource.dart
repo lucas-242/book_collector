@@ -8,6 +8,7 @@ class GoogleBooksDataSource implements IBookDatasource {
   Future<List<Book>> search(String searchTerms) async {
     final uri = Uri.parse('${Configs.bookApi}/volumes?q=$searchTerms');
     final response = await http.get(uri);
+    //TODO: Handle Errors
     if (response.statusCode == 200) {
       // Iterable body = json.decode(response.body);
       final googleVolumeResponse =

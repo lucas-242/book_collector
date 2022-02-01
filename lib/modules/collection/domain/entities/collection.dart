@@ -11,7 +11,7 @@ class Collection extends Equatable {
   Collection({
     required this.id,
     required this.name,
-    books,
+    List<Book>? books,
     this.isPublic = false,
     this.sharedUsers,
   }) : this.books = books ?? [];

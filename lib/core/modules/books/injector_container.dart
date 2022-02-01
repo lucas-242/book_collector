@@ -6,12 +6,13 @@ final instance = GetIt.instance;
 
 Future<void> init() async {
   // Use Cases
-  instance.registerLazySingleton(() => SearchBook(repository: instance()));
+  instance.registerLazySingleton(() => SearchBook(bookRepository: instance()));
 
   // Repositories
-  instance.registerLazySingleton<IBookRepository>(() =>
-      BookRepository(instance()));
+  instance
+      .registerLazySingleton<IBookRepository>(() => BookRepository(instance()));
 
   // Datasources
-  instance.registerLazySingleton<IBookDatasource>(() => GoogleBooksDataSource());
+  instance
+      .registerLazySingleton<IBookDatasource>(() => GoogleBooksDataSource());
 }
