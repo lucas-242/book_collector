@@ -1,17 +1,17 @@
-import 'package:book_collector/core/errors/exception.dart';
+import 'package:book_collector/core/models/errors/exception.dart';
 
-abstract class LogInWithGoogleException extends ServerException {
-  LogInWithGoogleException(String message) : super(message);
+abstract class ILogInWithGoogleException extends ServerException {
+  ILogInWithGoogleException(String message) : super(message);
 }
 
-abstract class LogInWithEmailAndPasswordException extends ServerException {
-  LogInWithEmailAndPasswordException(String message) : super(message);
+abstract class ILogInWithEmailAndPasswordException extends ServerException {
+  ILogInWithEmailAndPasswordException(String message) : super(message);
 }
 
-abstract class LogOutException extends ServerException {
-  LogOutException(String message) : super(message);
+abstract class ILogOutException extends ServerException {
+  ILogOutException(String message) : super(message);
 }
 
-abstract class SignUpWithEmailAndPasswordException extends ServerException {
-  SignUpWithEmailAndPasswordException(String message) : super(message);
+abstract class ISignUpWithEmailAndPasswordException extends ServerException {
+  ISignUpWithEmailAndPasswordException(String message) : super(message);
 }

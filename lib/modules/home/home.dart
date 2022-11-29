@@ -1,2 +1,2 @@
-export 'view/view.dart';
-export 'widgets/widgets.dart';
+export 'pages/home_page.dart';
+export 'widgets/avatar_widget.dart';
